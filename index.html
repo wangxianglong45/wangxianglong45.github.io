@@ -1,1 +1,817 @@
-null
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xianglong Wang - Assistant Professor in Data Science</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2d5f8f;
+            --accent-color: #3182ce;
+            --text-color: #2d3748;
+            --text-light: #4a5568;
+            --background: #ffffff;
+            --surface: #f7fafc;
+            --border: #e2e8f0;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: var(--background);
+            box-shadow: 0 20px 60px var(--shadow);
+            border-radius: 20px;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-color);
+            box-shadow: 0 10px 30px rgba(49, 130, 206, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        .header-content {
+            flex: 1;
+        }
+
+        .name {
+            font-family: 'Crimson Text', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .chinese-name {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .title {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .affiliation {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .contact-item:hover {
+            color: var(--accent-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .social-link:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(49, 130, 206, 0.4);
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        .biography {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            text-align: justify;
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .publications-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .publication-card {
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .publication-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent-color), var(--secondary-color));
+        }
+
+        .publication-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px var(--shadow);
+            border-color: var(--accent-color);
+        }
+
+        .pub-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .pub-authors {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .pub-authors .author-highlight {
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        .pub-venue {
+            font-style: italic;
+            color: var(--secondary-color);
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .pub-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.8rem;
+            background: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .pub-link:hover {
+            background: var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-category {
+            background: var(--surface);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .info-category h3 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        .info-list li i {
+            color: var(--accent-color);
+            width: 16px;
+        }
+
+        .year-badge {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-left: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .name {
+                font-size: 2.5rem;
+            }
+
+            .contact-info {
+                justify-content: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container fade-in">
+        <!-- Header Section -->
+        <header class="header">
+            <img src="picture/45.jpeg" alt="Xianglong Wang" class="profile-image">
+            <div class="header-content">
+                <h1 class="name">Xianglong Wang</h1>
+                <p class="chinese-name">王祥龙</p>
+                <p class="title">Assistant Professor in Data Science</p>
+                <p class="affiliation">School of Data Science, Qingdao University of Science and Technology</p>
+                
+                <div class="contact-info">
+                    <a href="mailto:xw2009@hw.ac.uk" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        xw2009@hw.ac.uk
+                    </a>
+                    <span class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        No.99 Songling Rd, Qingdao, Shandong, P.R.China
+                    </span>
+                    <span class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        +1 530 208 9796
+                    </span>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://wangxianglong45.github.io/xianglong_cv.pdf" class="social-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>
+                        CV
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=XXXXXXX" class="social-link" target="_blank">
+                        <i class="fas fa-graduation-cap"></i>
+                        Scholar
+                    </a>
+                    <a href="https://orcid.org/XXXX-XXXX-XXXX-XXXX" class="social-link" target="_blank">
+                        <i class="fab fa-orcid"></i>
+                        ORCID
+                    </a>
+                    <a href="https://www.researchgate.net/profile/Xianglong-Wang" class="social-link" target="_blank">
+                        <i class="fab fa-researchgate"></i>
+                        ResearchGate
+                    </a>
+                    <a href="https://wangxianglong45.github.io" class="social-link" target="_blank">
+                        <i class="fas fa-home"></i>
+                        Homepage
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Biography Section -->
+        <section class="section">
+            <h2 class="section-title">About</h2>
+            <div class="biography">
+                Xianglong Wang has been an Assistant Professor in the School of Data Science at Qingdao University of Science and Technology, China, since 2024. He is affiliated with the university's Medical Imaging and Artificial Intelligence research group, working closely with Prof. Junyu Dong's team. He serves as a reviewer for leading journals such as IEEE Transactions on Circuits and Systems for Video Technology, IEEE Transactions on Geoscience and Remote Sensing, and Transactions on Internet and Information Systems, as well as for top conferences including MICCAI, ICASSP, and IEEE ICME.
+                <br><br>
+                Dr. Wang earned his Ph.D. in Computer Application Technology (2020–2024) from the College of Computer Science and Technology, Ocean University of China, under the supervision of Prof. Junyu Dong. He received his Master of Engineering in Agricultural Informatics (2017–2020) from the same institution and his Bachelor of Engineering in Internet of Things Engineering (2013–2017) from Shandong Agricultural University.
+                <br><br>
+                His research interests include medical image analysis, 3D reconstruction, deep learning model design, and intelligent hardware systems. He is particularly focused on integrating AI algorithms with physical devices for real-world applications in healthcare, industrial inspection, and security systems. Dr. Wang has extensive experience in both hardware and software development, with projects ranging from IoT sensing devices to medical imaging systems.
+            </div>
+        </section>
+
+        <!-- Employment Section -->
+        <section class="section">
+            <h2 class="section-title">Employment</h2>
+            <div class="info-grid">
+                <div class="info-category">
+                    <h3><i class="fas fa-university" style="margin-right: 0.5rem;"></i>Current Position</h3>
+                    <ul class="info-list">
+                        <li><i class="fas fa-briefcase"></i>Assistant Professor, School of Data Science</li>
+                        <li><i class="fas fa-map-marker-alt"></i>Qingdao University of Science and Technology</li>
+                        <li><i class="fas fa-calendar"></i>September 2024 - Present</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="publications-grid">
+                <div class="publication-card">
+                    <h3 class="pub-title">Doctor of Philosophy in Computer Application Technology</h3>
+                    <p class="pub-authors">College of Computer Science and Technology, Ocean University of China</p>
+                    <p class="pub-venue">Supervised by Prof. Junyu Dong <span class="year-badge">2020-2024</span></p>
+                </div>
+                
+                <div class="publication-card">
+                    <h3 class="pub-title">Master of Engineering in Agricultural Informatics</h3>
+                    <p class="pub-authors">College of Computer Science and Technology, Ocean University of China</p>
+                    <p class="pub-venue">Research Focus: Medical Image Analysis <span class="year-badge">2017-2020</span></p>
+                </div>
+                
+                <div class="publication-card">
+                    <h3 class="pub-title">Bachelor of Engineering in Internet of Things Engineering</h3>
+                    <p class="pub-authors">School of Information Science and Engineering, Shandong Agricultural University</p>
+                    <p class="pub-venue">Focus: IoT Systems Development <span class="year-badge">2013-2017</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills and Interests Section -->
+        <section class="section">
+            <h2 class="section-title">Skills & Interests</h2>
+            <div class="info-grid">
+                <div class="info-category">
+                    <h3><i class="fas fa-lightbulb" style="margin-right: 0.5rem;"></i>Research Interests</h3>
+                    <ul class="info-list">
+                        <li><i class="fas fa-microscope"></i>Medical Image Processing</li>
+                        <li><i class="fas fa-atom"></i>AI for Science</li>
+                        <li><i class="fas fa-robot"></i>Generative Artificial Intelligence</li>
+                        <li><i class="fas fa-cube"></i>3D Reconstruction</li>
+                    </ul>
+                </div>
+                
+                <div class="info-category">
+                    <h3><i class="fas fa-code" style="margin-right: 0.5rem;"></i>Technical Skills</h3>
+                    <ul class="info-list">
+                        <li><i class="fab fa-python"></i>Python, C++, MATLAB</li>
+                        <li><i class="fas fa-brain"></i>PyTorch, TensorFlow, MONAI</li>
+                        <li><i class="fas fa-microchip"></i>CUDA, Git, Linux, Docker</li>
+                        <li><i class="fas fa-cogs"></i>Hardware-Software Integration</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teaching Section -->
+        <section class="section">
+            <h2 class="section-title">Teaching Experience</h2>
+            <div class="publications-grid">
+                <div class="publication-card">
+                    <h3 class="pub-title">Digital Image Processing and Analysis</h3>
+                    <p class="pub-authors">Course Code: D225020400</p>
+                    <p class="pub-venue">Qingdao University of Science and Technology <span class="year-badge">2025-2026</span></p>
+                </div>
+                
+                <div class="publication-card">
+                    <h3 class="pub-title">Large Model and Generative Artificial Intelligence</h3>
+                    <p class="pub-authors">Course Code: DFX225021000</p>
+                    <p class="pub-venue">Qingdao University of Science and Technology <span class="year-badge">2024-2025</span></p>
+                </div>
+                
+                <div class="publication-card">
+                    <h3 class="pub-title">Web Crawler and Information Extraction</h3>
+                    <p class="pub-authors">Course Code: D225002002W-01 & DFX225020300-01</p>
+                    <p class="pub-venue">Qingdao University of Science and Technology <span class="year-badge">2024-2025</span></p>
+                </div>
+                
+                <div class="publication-card">
+                    <h3 class="pub-title">Generative AI and Chatbots</h3>
+                    <p class="pub-authors">Course Code: D225021700-01</p>
+                    <p class="pub-venue">Qingdao University of Science and Technology <span class="year-badge">2024-2025</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards and Achievements Section -->
+        <section class="section">
+            <h2 class="section-title">Awards & Achievements</h2>
+            <div class="publications-grid">
+                <div class="publication-card">
+                    <h3 class="pub-title">Doctoral Academic and Practical Innovation Scholarship</h3>
+                    <p class="pub-authors">Ocean University of China</p>
+                    <p class="pub-venue">Recognition for Outstanding Research <span class="year-badge">April 2024</span></p>
+                </div>
+                
+                <div class="publication-card">
+                    <h3 class="pub-title">Outstanding Graduate Student</h3>
+                    <p class="pub-authors">Ocean University of China (2021–2022)</p>
+                    <p class="pub-venue">Academic Excellence Award <span class="year-badge">November 2022</span></p>
+                </div>
+                
+                <div class="publication-card">
+                    <h3 class="pub-title">First Prize, Huawei Cup National Innovation Competition</h3>
+                    <p class="pub-authors">EEG-based Intelligent Wheelchair Control System (Project Leader)</p>
+                    <p class="pub-venue">National College Student Innovation and Entrepreneurship Competition <span class="year-badge">September 2016</span></p>
+                </div>
+                
+                <div class="publication-card">
+                    <h3 class="pub-title">First Prize, National IoT Application Innovation Competition</h3>
+                    <p class="pub-authors">EEG-based Intelligent Wheelchair Control System (Project Leader)</p>
+                    <p class="pub-venue">3rd National IoT Competition (East China Division) <span class="year-badge">May 2016</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Patents Section -->
+        <section class="section">
+            <h2 class="section-title">Patents</h2>
+            <div class="publications-grid">
+                <div class="publication-card">
+                    <h3 class="pub-title">Multi-channel Omnidirectional Tensile Stress In Vitro Cell Culture Device and Working Method</h3>
+                    <p class="pub-authors"><span class="author-highlight">Wang, X.</span>, Dong, J., Yuan, X., Zhang, S., Zhang Q., Fan, H., et al.</p>
+                    <p class="pub-venue">China Invention Patent <span class="year-badge">Granted</span></p>
+                </div>
+                
+                <div class="publication-card">
+                    <h3 class="pub-title">EEG-based Wheelchair Control Method and Voice-integrated Wheelchair Control System</h3>
+                    <p class="pub-authors">Liu, P., <span class="author-highlight">Wang, X.</span>, et al.</p>
+                    <p class="pub-venue">China Invention Patent <span class="year-badge">Granted</span></p>
+                </div>
+                
+                <div class="publication-card">
+                    <h3 class="pub-title">Stereo Matching Method and Device</h3>
+                    <p class="pub-authors">Gao, Y., Zhu, L., Zhang, Z., <span class="author-highlight">Wang, X.</span>, et al.</p>
+                    <p class="pub-venue">China Invention Patent <span class="year-badge">Granted</span></p>
+                </div>
+                
+                <div class="publication-card">
+                    <h3 class="pub-title">Three-dimensional Reconstruction Method for Rotating Underwater Objects Based on Laser Triangulation</h3>
+                    <p class="pub-authors">Fan, H., Dong, J., Zhu, Z., Qi, G., Qi, L., Yang, J., <span class="author-highlight">Wang, X.</span>, et al.</p>
+                    <p class="pub-venue">China Invention Patent <span class="year-badge">Granted</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Academic Service Section -->
+        <section class="section">
+            <h2 class="section-title">Academic Service</h2>
+            <div class="info-grid">
+                <div class="info-category">
+                    <h3><i class="fas fa-journal-whills" style="margin-right: 0.5rem;"></i>Journal Reviewer</h3>
+                    <ul class="info-list">
+                        <li><i class="fas fa-check"></i>IEEE Transactions on Circuits and Systems for Video Technology</li>
+                        <li><i class="fas fa-check"></i>IEEE Transactions on Geoscience and Remote Sensing</li>
+                        <li><i class="fas fa-check"></i>Transactions on Internet and Information Systems</li>
+                    </ul>
+                </div>
+                
+                <div class="info-category">
+                    <h3><i class="fas fa-users" style="margin-right: 0.5rem;"></i>Conference Reviewer</h3>
+                    <ul class="info-list">
+                        <li><i class="fas fa-check"></i>International Conference on Medical Image Computing and Computer Assisted Intervention (MICCAI)</li>
+                        <li><i class="fas fa-check"></i>International Conference on Acoustics Speech and Signal Processing (ICASSP)</li>
+                        <li><i class="fas fa-check"></i>IEEE International Conference on Image Processing (ICIP)</li>
+                        <li><i class="fas fa-check"></i>IEEE Conference on Multimedia Expo (ICME)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section class="section">
+            <h2 class="section-title">Selected Publications</h2>
+            <div class="publications-grid">
+                
+                <div class="publication-card">
+                    <h3 class="pub-title">A New Benchmark and Low Computational Cost Localization Method for Cephalometric Analysis</h3>
+                    <p class="pub-authors"><span class="author-highlight">Wang, X.</span>, An, X., Rigall, E., Zhang, S., Sun, H., Dong, J.</p>
+                    <p class="pub-venue">IEEE Transactions on Circuits and Systems for Video Technology <span class="year-badge">2024</span></p>
+                    <a href="https://doi.org/10.1109/TCSVT.2024.3386021" class="pub-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                        Paper
+                    </a>
+                </div>
+
+                <div class="publication-card">
+                    <h3 class="pub-title">A Method for X-Ray Image Landmarks Localization using Cyclic Coordinate-Guided Strategy</h3>
+                    <p class="pub-authors"><span class="author-highlight">Wang, X.</span>, An, X., Rigall, E., Zhang, S., Yu, H., Dong, J.</p>
+                    <p class="pub-venue">ICASSP 2024 - 2024 IEEE International Conference on Acoustics, Speech and Signal Processing <span class="year-badge">2024</span></p>
+                    <a href="https://doi.org/10.1109/ICASSP48485.2024.10447512" class="pub-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                        Paper
+                    </a>
+                </div>
+
+                <div class="publication-card">
+                    <h3 class="pub-title">Ceph2Style: A method for predicting facial growth direction using StyleGAN latent space editing</h3>
+                    <p class="pub-authors">An, X., <span class="author-highlight">Wang, X.</span>, Rigall, E., Zhang, S., Yu, H., Dong, J.</p>
+                    <p class="pub-venue">2024 9th International Conference on Image, Vision and Computing (ICIVC) <span class="year-badge">2024</span></p>
+                    <a href="https://doi.org/10.1109/ICIVC61627.2024.10837285" class="pub-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                        Paper
+                    </a>
+                </div>
+
+                <div class="publication-card">
+                    <h3 class="pub-title">DESNTC: Transformer-Based Double Shift Network for Breast Histopathological Image Classification</h3>
+                    <p class="pub-authors">Liu, J., <span class="author-highlight">Wang, X.</span>, Zhang, S., Dong, J.</p>
+                    <p class="pub-venue">2023 IEEE Smart World Congress (SWC, UIC) <span class="year-badge">2023</span></p>
+                    <a href="https://doi.org/10.1109/SWC57546.2023.10448650" class="pub-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                        Paper
+                    </a>
+                </div>
+
+                <div class="publication-card">
+                    <h3 class="pub-title">A Fast and Accurate RFID Tag Positioning Method Based on AoA Hologram and Hashtables</h3>
+                    <p class="pub-authors">Rigall, E., <span class="author-highlight">Wang, X.</span>, Zhang, S., Dong, J.</p>
+                    <p class="pub-venue">Computer Communications <span class="year-badge">2023</span></p>
+                    <a href="#" class="pub-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                        Paper
+                    </a>
+                </div>
+
+                <div class="publication-card">
+                    <h3 class="pub-title">Efficient and Stable Cephalometric Landmark Localization Using Two-Stage Heatmaps' Regression</h3>
+                    <p class="pub-authors"><span class="author-highlight">Wang, X.</span>, Rigall, E., Chen, Q., Zhang, S., Dong, J.</p>
+                    <p class="pub-venue">IEEE Transactions on Instrumentation and Measurement <span class="year-badge">2022</span></p>
+                    <a href="https://doi.org/10.1109/TIM.2022.3206762" class="pub-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                        Paper
+                    </a>
+                </div>
+
+                <div class="publication-card">
+                    <h3 class="pub-title">Calibration of photometric stereo point light source based on standard block</h3>
+                    <p class="pub-authors">Yang, Y., <span class="author-highlight">Wang, X.</span>, Fan, H., Qin, X., Jian, M., Dong, J.</p>
+                    <p class="pub-venue">International Workshop on Advanced Imaging Technology (IWAIT) 2022 <span class="year-badge">2022</span></p>
+                    <a href="#" class="pub-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                        Paper
+                    </a>
+                </div>
+
+                <div class="publication-card">
+                    <h3 class="pub-title">An RFID Tag Localization Method Based on Hologram Mask and Discrete Cosine Transform</h3>
+                    <p class="pub-authors">Rigall, E., <span class="author-highlight">Wang, X.</span>, Chen, Q., Zhang, S., Dong, J.</p>
+                    <p class="pub-venue">IEEE Transactions on Instrumentation and Measurement <span class="year-badge">2022</span></p>
+                    <a href="https://doi.org/10.1109/TIM.2021.3132075" class="pub-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                        Paper
+                    </a>
+                </div>
+
+                <div class="publication-card">
+                    <h3 class="pub-title">Rotation Axis Calibration of Laser Line Rotating-Scan System for 3D Reconstruction</h3>
+                    <p class="pub-authors">Zhu, Z., <span class="author-highlight">Wang, X.</span>, Dong, J., Jiang, B., Zhang, S.</p>
+                    <p class="pub-venue">2020 11th International Conference on Awareness Science and Technology (iCAST) <span class="year-badge">2020</span></p>
+                    <a href="https://doi.org/10.1109/iCAST51195.2020.9319495" class="pub-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                        Paper
+                    </a>
+                </div>
+
+                <div class="publication-card">
+                    <h3 class="pub-title">Poker Watcher: Playing Card Detection Based on EfficientDet and Sandglass Block</h3>
+                    <p class="pub-authors">Chen, Q., Rigall, E., <span class="author-highlight">Wang, X.</span>, Fan, H., Dong, J.</p>
+                    <p class="pub-venue">2020 11th International Conference on Awareness Science and Technology (iCAST) <span class="year-badge">2020</span></p>
+                    <a href="https://doi.org/10.1109/iCAST51195.2020.9319468" class="pub-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                        Paper
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Research Projects Section -->
+        <section class="section">
+            <h2 class="section-title">Research Projects</h2>
+            <div class="publications-grid">
+                
+                <div class="publication-card">
+                    <h3 class="pub-title">Medical Image Landmark Detection with Multi-scale Iterative Features and Learnable Attack Strategies</h3>
+                    <p class="pub-authors">Project Leader | National Fundamental Research Funds for Central Universities</p>
+                    <p class="pub-venue">Ocean University of China <span class="year-badge">2022-2024</span></p>
+                    <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.5rem;">
+                        Developed advanced landmark detection algorithms with multi-scale feature extraction and deployed at Qingdao University Affiliated Hospital.
+                    </p>
+                </div>
+                
+                <div class="publication-card">
+                    <h3 class="pub-title">Efficient Intelligent Diagnosis System for Mammography-based Breast Cancer Detection</h3>
+                    <p class="pub-authors">Project Leader</p>
+                    <p class="pub-venue">Deep Learning for Medical Imaging <span class="year-badge">2021-2023</span></p>
+                    <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.5rem;">
+                        Applied deep learning to automatically annotate tumor type, location, and size in mammograms, enhancing radiologists' diagnostic accuracy.
+                    </p>
+                </div>
+                
+                <div class="publication-card">
+                    <h3 class="pub-title">Automatic Cephalometric Software Development</h3>
+                    <p class="pub-authors">Project Leader</p>
+                    <p class="pub-venue">Medical AI Application <span class="year-badge">2019-2022</span></p>
+                    <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.5rem;">
+                        Developed software for automatic cephalometric landmark detection using multimodal alignment between visual and textual modalities.
+                    </p>
+                </div>
+                
+                <div class="publication-card">
+                    <h3 class="pub-title">Baccarat Security System Based on Deep Learning and RFID</h3>
+                    <p class="pub-authors">Project Leader</p>
+                    <p class="pub-venue">AI Security System <span class="year-badge">2017-2022</span></p>
+                    <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.5rem;">
+                        Developed integrated monitoring system using deep learning for card recognition and RFID for real-time chip tracking. Currently under negotiation for deployment in Macau.
+                    </p>
+                </div>
+                
+                <div class="publication-card">
+                    <h3 class="pub-title">EEG and Voice-based Intelligent Wheelchair Control System</h3>
+                    <p class="pub-authors">Project Leader</p>
+                    <p class="pub-venue">IoT and AI Integration <span class="year-badge">2016-2017</span></p>
+                    <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.5rem;">
+                        Integrated IoT sensing and intelligent control to enable wheelchair operation via EEG, voice, and manual inputs with infrared obstacle avoidance.
+                    </p>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section">
+            <h2 class="section-title">Contact & Links</h2>
+            <div class="info-grid">
+                <div class="info-category">
+                    <h3><i class="fas fa-envelope" style="margin-right: 0.5rem;"></i>Contact Information</h3>
+                    <ul class="info-list">
+                        <li><i class="fas fa-envelope"></i>Email: xw2009@hw.ac.uk</li>
+                        <li><i class="fas fa-phone"></i>Phone: +1 530 208 9796</li>
+                        <li><i class="fas fa-map-marker-alt"></i>Address: No.99 Songling Rd, Qingdao, Shandong, P.R.China</li>
+                        <li><i class="fas fa-home"></i>Homepage: https://wangxianglong45.github.io</li>
+                    </ul>
+                </div>
+
+                <div class="info-category">
+                    <h3><i class="fas fa-link" style="margin-right: 0.5rem;"></i>Academic Profiles</h3>
+                    <ul class="info-list">
+                        <li><i class="fas fa-graduation-cap"></i>Google Scholar (to be updated)</li>
+                        <li><i class="fab fa-orcid"></i>ORCID (to be updated)</li>
+                        <li><i class="fab fa-researchgate"></i>ResearchGate (to be updated)</li>
+                        <li><i class="fas fa-file-pdf"></i>CV: xianglong_cv.pdf</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Add smooth scrolling for any internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add loading animation for publication cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.publication-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
